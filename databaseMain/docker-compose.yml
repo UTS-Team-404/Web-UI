@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: mariadb:11.4
+    container_name: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: myappdb
+      MARIADB_USER: myuser
+      MARIADB_PASSWORD: mypass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d  # <-- run extra SQL scripts at init
+
+  init:
+    build: ./init
+    container_name: db-init
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: team404user
+      DB_PASSWORD: pass
+      DB_NAME: team404
+
+volumes:
+  db_data:

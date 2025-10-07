@@ -1,0 +1,25 @@
+Setup
+
+Install and run MariaDB SQL server (usualy preinstalled)
+
+systemctl enable mysql.service 
+systemctl start mysql.service 
+systemctl status mysql.service 
+
+
+you should be able to run "sudo mysql" in the command line to enter the database
+     Run these commands
+     
+    CREATE DATABASE team404;
+    USE team404;
+    CREATE USER 'team404user'@'localhost' IDENTIFIED BY 'pass';
+    GRANT ALL PRIVILEGES ON *.* TO 'team404user'@'localhost';
+
+
+You should be all set to use the databaseTemplates.py and uncomment the initalise code at the bottom, you should get the output
+
+✅ Database initialized successfully!
+[('ID', 'int', 'NO', None, ''), ('startTime', 'datetime', 'NO', None, ''), ('stopTime', 'datetime', 'YES', 'NULL', ''), ('projectType', 'varchar', 'YES', 'NULL', '')]
+[('ID', 'int', 'NO', None, ''), ('projectID', 'int', 'NO', None, ''), ('captureTime', 'datetime', 'NO', None, ''), ('srcMac', 'varchar', 'NO', None, ''), ('dstMac', 'varchar', 'YES', 'NULL', ''), ('SSID', 'varchar', 'YES', 'NULL', ''), ('encType', 'varchar', 'YES', 'NULL', ''), ('authMode', 'varchar', 'YES', 'NULL', ''), ('gpsLat', 'int', 'YES', 'NULL', ''), ('gpsLong', 'int', 'YES', 'NULL', ''), ('strength', 'int', 'YES', 'NULL', ''), ('contentLength', 'int', 'YES', 'NULL', ''), ('typeExternal', 'varchar', 'YES', 'NULL', ''), ('typeInternal', 'varchar', 'YES', 'NULL', ''), ('srcIP', 'varchar', 'YES', 'NULL', ''), ('dstIP', 'varchar', 'YES', 'NULL', ''), ('srcPort', 'int', 'YES', 'NULL', ''), ('dstPort', 'int', 'YES', 'NULL', ''), ('sniffType', 'varchar', 'YES', 'NULL', '')]
+
+DM Harry if you need help

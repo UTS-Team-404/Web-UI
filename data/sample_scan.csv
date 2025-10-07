@@ -1,0 +1,5 @@
+timestamp,ssid,bssid,channel,rssi
+2025-08-26T16:45:01,UTS-WiFi,90:4c:81:aa:bb:cc,11,-53
+2025-08-26T16:45:02,UTS-WiFi,90:4c:81:aa:bb:cc,11,-55
+2025-08-26T16:45:05,SomeCafe,4e:a1:22:33:44:55,6,-68
+2025-08-26T16:45:10,Hidden,(not broadcast),1,-80
