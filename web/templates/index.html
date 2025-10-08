@@ -40,7 +40,7 @@
                 
                 <div class="d-flex justify-content-center gap-2">
                     <button class="btn btn-primary">Search</button>
-                    <a href="{{ url_for('static', filename='reports/wifi_report.pdf') }}" download class="btn btn-success">
+                    <a href="{{ url_for('download_report', projectID=selected_pid, ssid=selected_q) }}" download class="btn btn-success">
                     Download PDF
                     </a>
                     <a href="/" class="btn btn-secondary">Reset</a>
@@ -56,7 +56,11 @@
                             <th>Frames</th>
                             <th>First Seen</th>
                             <th>Last Seen</th>
-                            <th>Min / Avg / Max RSSI</th>
+                            <th>Min RSSI</th>
+                            <th>Avg RSSI</th>
+                            <th>Max RSSI</th>
+                            <th>Encryption</th>
+                            <th>Authentication</th>
                         </tr>
                         {% for r in macs %}
                         <tr>
@@ -64,7 +68,11 @@
                             <td>{{ r['frames'] }}</td>
                             <td>{{ r['first_seen'] }}</td>
                             <td>{{ r['last_seen'] }}</td>
-                            <td>{{ r['min_rssi'] }} / {{ r['avg_rssi'] }} / {{ r['max_rssi'] }}</td>
+                            <td>{{ r['min_rssi'] }}</td>
+                            <td>{{ r['avg_rssi'] }}</td>
+                            <td>{{ r['max_rssi'] }}</td>
+                            <td>{{ r['enc_types'] }}</td>
+                            <td>{{ r['auth_modes'] }}</td>
                         </tr>
                         {% endfor %}
                     </table>
